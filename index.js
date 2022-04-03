@@ -3,13 +3,12 @@ const app = express();
 const cors = require('cors')
 const mongoose = require('mongoose');
 const Country = require('./models/Country');
-const Province = require('./models/Province');
+const Province = require('./models/Province')
 const session = require('express-session');
-const req = require('express/lib/request');
 
 //Enabling All CORS Requests
 app.use(cors())
-
+app.use(express.json())
 
 const port = 3001 || process.env.port
 app.listen(port, () => {
@@ -34,6 +33,26 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 
+//session getting whether dark mode is on or off
+app.get('/darkMode', async(req, res) => {
+    if (req.session.darkMode === undefined) {
+        req.session.darkMode = false;
+    }
+    res.send({ darkMode: req.session.darkMode })
+});
+
+//changing session.darkMode by calling this route
+app.post('/darkMode', async(req, res) => {
+    const { darkMode } = req.body;
+    if (darkMode) {
+        req.session.darkMode = false;
+        res.send({ darkMode: req.session.darkMode })
+    } else {
+        req.session.darkMode = true;
+        res.send({ darkMode: req.session.darkMode })
+    }
+})
+
 //route to country
 app.get('/:country', async(req, res) => {
     const { country: countryName } = req.params;
@@ -47,19 +66,3 @@ app.get('/:country/:province', async(req, res) => {
     const country = await Country.find({ name: countryName }).populate('provinces');
     res.send({ province, country })
 });
-
-//session getting whether dark mode is on or off
-app.get('/:darkMode', async(req, res) => {
-    res.send({ darkMode: req.session.darkMode })
-})
-
-app.post('/:darkMode', async(req, res) => {
-    const { darkMode } = req.body;
-    if (darkMode) {
-        req.session.darkMode = true;
-        res.send({ darkMode: req.session.darkMode })
-    } else {
-        req.session.darkMode = false;
-        res.send({ darkMode: req.session.darkMode })
-    }
-})

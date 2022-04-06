@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Country = require('../models/Country')
 const Province = require('../models/Province')
-const { countries, provinces: provinceFolder, prov } = require('./countries')
+const { countries, prov } = require('./countries')
 const {
     name,
     population,
@@ -10,15 +10,6 @@ const {
     populationByLanguage,
     description
 } = countries[0]
-
-const {
-    provinceName,
-    raceLabels,
-    populationInKzn,
-    populationByRace,
-    populationByLanguageProvince,
-    provinceDescription,
-} = provinceFolder[0];
 
 //Seeding the database with sample data
 

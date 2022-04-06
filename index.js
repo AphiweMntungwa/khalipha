@@ -4,7 +4,6 @@ const cors = require('cors')
 const mongoose = require('mongoose');
 const Country = require('./models/Country');
 const Province = require('./models/Province')
-const session = require('express-session');
 
 //Enabling All CORS Requests
 app.use(cors())
@@ -19,39 +18,6 @@ main().then(() => console.log('DATABASE CONNECTED')).catch(err => console.log(er
 async function main() {
     await mongoose.connect('mongodb://localhost:27017/infomzansi');
 }
-//session config
-const sessionConfig = {
-    name: 'recaller',
-    secret: 'iamintrouble' || process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        sameSite: 'none',
-        expires: Date.now() * 1000 * 60 * 60 * 24 * 7 * 3,
-        maxAge: 1000 * 60 * 60 * 24
-    }
-}
-app.use(session(sessionConfig))
-
-//session getting whether dark mode is on or off
-app.get('/darkMode', async(req, res) => {
-    if (req.session.darkMode === undefined) {
-        req.session.darkMode = false;
-    }
-    res.send({ darkMode: req.session.darkMode })
-});
-
-//changing session.darkMode by calling this route
-app.post('/darkMode', async(req, res) => {
-    const { darkMode } = req.body;
-    if (darkMode) {
-        req.session.darkMode = false;
-        res.send({ darkMode: req.session.darkMode })
-    } else {
-        req.session.darkMode = true;
-        res.send({ darkMode: req.session.darkMode })
-    }
-})
 
 //route to country
 app.get('/:country', async(req, res) => {
@@ -61,8 +27,10 @@ app.get('/:country', async(req, res) => {
 });
 
 //route to province, sends back country with provinceRef array
-app.get('/:country/:province', async(req, res) => {
-    const { country: countryName, province } = req.params;
-    const country = await Country.find({ name: countryName }).populate('provinces');
+app.post('/:country/province', async(req, res) => {
+    const { name: province } = req.body
+    console.log(req.body)
+    const { country: countryName } = req.params
+    const country = await Country.find({ name: countryName }).populate('provinces')
     res.send({ province, country })
 });

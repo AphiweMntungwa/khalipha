@@ -29,7 +29,6 @@ app.get('/:country', async(req, res) => {
 //route to province, sends back country with provinceRef array
 app.post('/:country/province', async(req, res) => {
     const { name: province } = req.body
-    console.log(req.body)
     const { country: countryName } = req.params
     const country = await Country.find({ name: countryName }).populate('provinces')
     res.send({ province, country })

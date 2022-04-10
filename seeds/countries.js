@@ -45,7 +45,7 @@ const prov = [{
     raceLabels: ["Black", "Coloured", "Asian", "White"],
     populationInProv: 11513575,
     populationByRace: [86.8, 1.4, 7.4, 4.2],
-    populationByLanguage: [77.8, 13.2, 3.4, 1.6],
+    populationByLanguage: [1.6, 13.2, 0, 3.4, 77.8, 0, 0, 0, 0, 0, 0],
     description: `KwaZulu-Natal (/kwɑːˌzuːluː nəˈtɑːl/, also referred to as KZN and 
     known as "the garden province";[5] Zulu: iKwaZulu-Natali; Xhosa: KwaZulu-Natala; 
     Afrikaans: KwaZoeloe-Natal) is a province of South Africa that was created in 1994 
@@ -119,11 +119,6 @@ const prov = [{
     in the Swazi, Xhosa, Ndebele and Zulu languages. 
     Mpumalanga lies in eastern South Africa, bordering Eswatini and Mozambique.`,
 }, {
-    /*['Afrikaans', 'English', 'IsiNdebele', 'IsiXhosa', 'IsiZulu', 'Sepedi', 'Sesotho', 'Setswana',
-    'SiSwati',
-    'Tshivenda',
-    'Xitsonga',
-]*/
     name: 'Western Cape',
     raceLabels: ["black", "Coloured", "Asian", "White"],
     populationInProv: 7113776,

@@ -33,3 +33,22 @@ app.post('/:country/province', async(req, res) => {
     const country = await Country.find({ name: countryName }).populate('provinces')
     res.send({ province, country })
 });
+
+//search route
+app.get('/search/:q', async(req, res) => {
+    const { q } = req.params;
+    const countries = await Country.find({});
+    const provinces = await Province.find({});
+    const countrySearch = { ownArr: [] }
+    const provinceSearch = { ownArr: [] }
+
+    function searchBox(arr, itemSearch, q) {
+        arr.forEach(el => {
+            el.name.toLowerCase().includes(q.toLowerCase()) &&
+                itemSearch.ownArr.push(el.name)
+        });
+    }
+    searchBox(countries, countrySearch, q, )
+    searchBox(provinces, provinceSearch, q)
+    res.send({ countrySearch, provinceSearch });
+})

@@ -13,7 +13,9 @@ const countrySchema = new Schema({
     provinces: [{
         type: Schema.Types.ObjectId,
         ref: 'Province'
-    }]
+    }],
+    religions: {},
+    economy: {}
 })
 
 module.exports = model('Country', countrySchema);

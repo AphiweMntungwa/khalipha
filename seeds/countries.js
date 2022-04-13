@@ -14,13 +14,18 @@ const countries = [{
         'Xitsonga',
     ],
     populationByLanguage: [13.5, 9.6, 2.1, 16.0, 22.7, 9.1, 7.6, 8.0, 0.5, 2.5, 2.4, 4.5],
-    economicindicators: [{
-        currentGDP: 301.9,
-        overTheYearsGDP: [],
-        currentPerCapGDP: 7200,
-        overTheYearsPerCapitaGDP: [],
-        unemployment: '',
-    }],
+    economy: {
+        gdp: {
+            years: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+                2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+            ],
+            growth: [4.200000001, 2.7, 3.700374404, 2.949075468, 4.554559907, 5.277051973, 5.603806459,
+                5.360474054, 3.191043886, -1.538089135, 3.039732881, 3.168556279, 2.396232385,
+                2.485468008, 1.413826452, 1.321862237, 0.664552308, 1.157946952, 1.487617373,
+                0.113053697, -6.431974826,
+            ]
+        }
+    },
     ethnicGroups: {
         black: 80.7,
         coloured: 8.8,
@@ -28,13 +33,8 @@ const countries = [{
         asian: 2.6
     },
     religions: {
-        christianity: 78.0,
-        noReligion: 10.9,
-        traditionalFaiths: 4.4,
-        islam: 1.6,
-        hinduism: 1.0,
-        others: 2.7,
-        undetermined: 1.4,
+        list: ['christianity', 'noReligion', 'traditionalFaiths', 'islam', 'hinduism', 'others', 'undetermined'],
+        listData: [78.0, 10.9, 4.4, 1.6, 1.0, 2.7, 1.4, ]
     },
     president: 'Cyril Ramaphosa'
 }]

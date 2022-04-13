@@ -8,7 +8,9 @@ const {
     populationByProvince,
     languages,
     populationByLanguage,
-    description
+    description,
+    religions,
+    economy
 } = countries[0]
 
 //Seeding the database with sample data
@@ -26,7 +28,9 @@ async function seedData() {
         populationByProvince,
         languages,
         populationByLanguage,
-        description
+        description,
+        religions,
+        economy
     })
     southAfrica.save().then(async() => {
         await Province.deleteMany({});

@@ -4,6 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose');
 const Country = require('./models/Country');
 const Province = require('./models/Province')
+const axios = require('axios');
 
 //Enabling All CORS Requests
 app.use(cors())
@@ -51,4 +52,10 @@ app.get('/search/:q', async(req, res) => {
     searchBox(countries, countrySearch, q, )
     searchBox(provinces, provinceSearch, q)
     res.send({ countrySearch, provinceSearch });
+})
+
+app.get('/forex/:code', (req, res) => {
+    axios('http://api.exchangeratesapi.io/v1/latest?access_key=c6dfbef3005a9320dd7ffb67253e4144').then(
+        res => console.log(res)
+    ).catch(e => console.log(e))
 })

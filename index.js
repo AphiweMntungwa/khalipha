@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
 const express = require('express');
 const app = express();
 const cors = require('cors')
@@ -19,6 +22,18 @@ main().then(() => console.log('DATABASE CONNECTED')).catch(err => console.log(er
 async function main() {
     await mongoose.connect('mongodb://localhost:27017/infomzansi');
 }
+//foreign exchange route
+app.get('/forex', async(req, res) => {
+    const { base, toCurrency } = req.body;
+    const link = `http://api.exchangeratesapi.io/v1/latest?access_key=${process.env.FX_API_KEY}`;
+    axios(link)
+        .then(response => {
+            res.send(response.data)
+        })
+        .catch(e => {
+            res.send({ error: e.message })
+        })
+})
 
 //route to country
 app.get('/:country', async(req, res) => {
@@ -52,10 +67,4 @@ app.get('/search/:q', async(req, res) => {
     searchBox(countries, countrySearch, q, )
     searchBox(provinces, provinceSearch, q)
     res.send({ countrySearch, provinceSearch });
-})
-
-app.get('/forex/:code', (req, res) => {
-    axios('http://api.exchangeratesapi.io/v1/latest?access_key=c6dfbef3005a9320dd7ffb67253e4144').then(
-        res => console.log(res)
-    ).catch(e => console.log(e))
 })

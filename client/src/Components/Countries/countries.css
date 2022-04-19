@@ -1,0 +1,12 @@
+.changeButtonHolder {
+    display: flex;
+    margin-top: 2%;
+}
+
+.changeButtonHolder button {
+    font-size: .6em
+}
+
+.changeButtonHolder button:last-child {
+    margin-left: 1%;
+}

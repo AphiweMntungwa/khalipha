@@ -1,6 +1,7 @@
+const dotenv = require("dotenv").config();
 const mongoose = require('mongoose');
-const Country = require('../models/Country')
-const Province = require('../models/Province')
+const Country = require('../models/countries')
+const Province = require('../models/provinces')
 const { countries, prov } = require('./countries')
 const {
     name,
@@ -14,10 +15,10 @@ const {
 } = countries[0]
 
 //Seeding the database with sample data
-
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/infomzansi'
 main().then(() => console.log('DATABASE CONNECTED')).catch(err => console.log(err));
 async function main() {
-    await mongoose.connect('mongodb://localhost:27017/infomzansi');
+    await mongoose.connect(dbUrl);
 }
 
 async function seedData() {

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.country-paragraph {
+    font-family: Georgia, 'Times New Roman', Times, serif, 'Open Sans', sans-serif;
+    font-size: .8em;
+    line-height: 20px;
+    animation: slide-up .8s;
+}
+
+@keyframes slide-up {
+    from {
+        opacity: .2;
+        line-height: 250px;
+    }
+    to {
+        opacity: 1;
+        line-height: 20px;
+    }
+}
+
+.link-span {
+    font-size: 1.6em;
+}

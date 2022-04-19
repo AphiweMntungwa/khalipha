@@ -1,0 +1,73 @@
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-block: .5em;
+}
+
+.nav-wrapper {
+    background-color: rgb(138, 233, 233, .2);
+}
+
+.laynav {}
+
+.wrapperOn {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(138, 233, 233);
+    transition: background-color 0.6s ease-in-out;
+}
+
+.cross-div {
+    display: none;
+    padding-inline: .2em
+}
+
+.cross-button {
+    background-color: black;
+    width: 1.2em;
+    height: .1em;
+    transition: all .4s ease-in-out;
+}
+
+.cross-button-dark {
+    background-color: white;
+}
+
+@media (max-width:532px) {
+    nav {
+        justify-content: space-around;
+    }
+    .cross-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cross-button:first-child {
+        transform: translateY(8px);
+        height: .1em;
+    }
+    .cross-button:last-child {
+        transform: translateY(-8px);
+        height: .1em;
+    }
+    body {
+        overflow-x: hidden;
+    }
+}
+
+.bar .cross-button:nth-child(2) {
+    transform: translateX(10pc);
+}
+
+.bar .cross-button:nth-child(1) {
+    transform: rotate(-45deg);
+    /* background-color: rgb(38, 25, 25); */
+    box-shadow: 1px 1px 3px rgb(38, 25, 25);
+}
+
+.bar .cross-button:last-child {
+    transform: rotate(45deg);
+    /* background-color: rgb(38, 25, 25); */
+    box-shadow: 1px 1px 3px rgb(38, 25, 25);
+}

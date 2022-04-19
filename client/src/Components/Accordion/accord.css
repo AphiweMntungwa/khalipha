@@ -1,0 +1,13 @@
+.accordion-button {
+    font-size: .6em;
+}
+
+.dark-app .accordion-button {
+    color: wheat;
+    background-color: rgba(134, 125, 125, 0.2);
+}
+
+.dark-app .accordion-item {
+    background-color: black;
+    border: none;
+}

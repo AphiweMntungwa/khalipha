@@ -5,22 +5,29 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 const mongoose = require('mongoose');
-const Country = require('./models/Country');
-const Province = require('./models/Province')
+const Country = require('./models/countries');
+const Province = require('./models/provinces')
 const axios = require('axios');
+const path = require('path')
 
 //Enabling All CORS Requests
 app.use(cors())
 app.use(express.json())
 
+app.use(express.static(path.join(__dirname, 'build')))
+
 const port = 3001 || process.env.port
 app.listen(port, () => {
     console.log('LISTENING, PORT', port)
 })
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/infomzansi'
 main().then(() => console.log('DATABASE CONNECTED')).catch(err => console.log(err));
 async function main() {
-    await mongoose.connect('mongodb://localhost:27017/infomzansi');
+    await mongoose.connect(dbUrl);
 }
 
 //foreign exchange route

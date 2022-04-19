@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap');
+.side-div ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.side-div {
+    width: 100%;
+}
+
+.side-div li {
+    font-family: 'Fira Sans', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: .4em .4em;
+    box-shadow: 1px 5px 5px rgb(0, 0, 0);
+    letter-spacing: .1em;
+}
+
+.side-div li:hover {
+    box-shadow: 1px 7px 5px rgb(0, 0, 0);
+}
+
+.chevronSwitch box-icon {
+    transform: rotate(180deg);
+    fill: orangered;
+    transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+li input {
+    display: none;
+    width: 7pc;
+    background-color: rgb(51, 182, 138);
+    border: 1px solid black;
+    border-radius: .1em;
+}
+
+.dark-app li input {
+    border-radius: 0%;
+    background-color: rgb(16, 10, 10);
+    color: wheat;
+}
+
+.active-search input {
+    display: block;
+    animation: show-up .8s;
+}
+
+@keyframes show-up {
+    from {
+        width: 1pc;
+    }
+    to {
+        width: 7pc;
+    }
+}
+
+.active-search div {
+    display: none;
+}
+
+.side-div li span {
+    width: 100%;
+    background-color: inherit;
+    height: 0;
+    animation: on-turn .4s;
+    overflow-x: auto;
+}
+
+.side-div .chevronSwitch>span {
+    display: block;
+    height: fit-content;
+    max-height: 10pc;
+    animation: off-turn .6s;
+}
+
+@keyframes on-turn {
+    from {
+        height: fit-content;
+    }
+    to {
+        height: 0;
+    }
+}
+
+@keyframes off-turn {
+    from {
+        height: 0;
+    }
+    to {
+        height: fit-content;
+    }
+}
+
+.side-div li span li {
+    display: none;
+}
+
+.side-div .chevronSwitch>span li {
+    display: block;
+    animation: just-do-it 1.4s;
+}
+
+@keyframes just-do-it {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dark-icons {
+    fill: wheat;
+}

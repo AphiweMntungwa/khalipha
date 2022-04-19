@@ -1,0 +1,85 @@
+.converter {
+    min-height: 100vh;
+}
+
+.input-carrier,
+.conversion-div,
+.header-div {
+    border: 1px solid rgb(5, 26, 5);
+    margin: 0.4em;
+    border-radius: 10px;
+}
+
+.dark-app .input-carrier,
+.dark-app .conversion-div,
+.dark-app .header-div {
+    border: 1px solid wheat;
+}
+
+.alert p {
+    font-size: 0.75em;
+}
+
+.selector-div {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.selector-div input {
+    width: 60%;
+}
+
+.selector-div input,
+.selector-div select {
+    border-radius: 10px;
+    border: 1px solid rgba(5, 26, 5, 0.482);
+}
+
+.dark-app .selector-div input,
+.dark-app .selector-div select {
+    background-color: rgb(24, 15, 15);
+    border: 1px solid rgba(245, 222, 179, 0.392);
+    color: wheat;
+}
+
+.selector-div select {
+    width: 4em;
+}
+
+.arrow-span {
+    font-size: 2em;
+}
+
+.conversion-div {
+    padding-block: 0.4em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.conversion-div i,
+.conversion-div span {
+    font-size: 0.8em;
+    max-width: 6em;
+}
+
+.dark-app.conversion-div {
+    background-color: #f5deb308;
+}
+
+.alert {
+    background-color: unset;
+}
+
+.alert button {
+    font-size: 0.6em;
+    border: 1px solid rgb(5, 26, 5);
+    color: rgba(0, 0, 0, 0.604);
+    font-weight: 600;
+}
+
+.dark-app .alert button {
+    border: 1px solid #198754;
+    color: #198754;
+}

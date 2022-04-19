@@ -7,7 +7,7 @@ const countries = [{
 
     provinces: ["KZN", "EC", "WC", "Limpompo", "MP", "Gauteng", "FS", "NW", "NC"],
     population: 60142978,
-    populationByProvince: [7.7, 13.8, 10.6, 10.3, 6.3, 1.4, 10.6, 8.7, 30.5],
+    populationByProvince: [19.3, 11.3, 11.8, 9.9, 7.8, 26, 4.9, 6.9, 2.2],
     languages: ['Afrikaans', 'English', 'IsiNdebele', 'IsiXhosa', 'IsiZulu', 'Sepedi', 'Sesotho', 'Setswana',
         'SiSwati',
         'Tshivenda',
@@ -24,7 +24,8 @@ const countries = [{
                 2.485468008, 1.413826452, 1.321862237, 0.664552308, 1.157946952, 1.487617373,
                 0.113053697, -6.431974826,
             ]
-        }
+        },
+        provinceByContributionGDP: [16, 8, 14, 7, 8, 34, 5, 6, 2]
     },
     ethnicGroups: {
         black: 80.7,

@@ -10,7 +10,7 @@ const Province = require('./models/provinces')
 const axios = require('axios');
 const path = require('path')
 
-//Enabling All CORS Requests
+//Enabling All CORS Requests.
 app.use(cors())
 app.use(express.json())
 

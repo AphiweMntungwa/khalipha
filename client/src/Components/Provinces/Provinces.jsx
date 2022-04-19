@@ -55,7 +55,7 @@ function Provinces() {
     data: provinces[0].populationByLanguage,
     chartText: "Population By Language(%)",
   };
-  const linkTo = provinces[0].name
+  const linkTo = provinces[0]
     ? `https://en.wikipedia.org/wiki/${provinces[0].name}`
     : "";
 

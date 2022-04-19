@@ -25,6 +25,7 @@ function Converter() {
     fromAmount = amount / exchangeRate;
   }
 
+  const link = "http://khalipha.herokuapp.com/forex";
   useEffect(() => {
     const bar = document.querySelector(".cross-div");
     const nav = document.querySelector("nav");
@@ -34,7 +35,7 @@ function Converter() {
     navWrapper.classList.remove("wrapperOn");
 
     axios
-      .post("http://localhost:3001/forex")
+      .post(link)
       .then(({ data }) => {
         const { base, rates } = data;
         const firstCur = Object.keys(rates)[0];
@@ -56,7 +57,7 @@ function Converter() {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:3001/forex`, { toCurrency })
+      .post(link, { toCurrency })
       .then(({ data }) => {
         console.log(toCurrency, data);
         const { rates } = data;

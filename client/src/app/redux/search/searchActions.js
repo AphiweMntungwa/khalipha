@@ -22,7 +22,7 @@ export const fetchSearchError = error => {
 export const searchThunk = (queryStr) => {
     return (dispatch) => {
         dispatch(fetchSearchReq());
-        axios.get(`https://khalipha.herokuapp.com/search/${queryStr}`)
+        axios.get(`http://khalipha.herokuapp.com/search/${queryStr}`)
             .then((res) => {
                 dispatch(fetchSearchSuccess(res.data))
             })

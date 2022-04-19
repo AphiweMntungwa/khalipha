@@ -21,7 +21,7 @@ export const fetchProvinceError = error => {
 export const provinceThunk = (name) => {
     return (dispatch, getState) => {
         dispatch(fetchProvinceReq());
-        axios.post("https://khalipha.herokuapp.com/South Africa/province", { name })
+        axios.post("http://khalipha.herokuapp.com/South Africa/province", { name })
             .then((res) => {
                 console.log(res)
                 const prv = res.data.country[0].provinces.filter(el =>

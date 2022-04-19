@@ -1,3 +1,2 @@
-# mzansi
-express backend for info-mzansi
-uses mongo and express
+# khalipha
+express-react-app for information about countries and their constituencies.

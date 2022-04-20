@@ -4,8 +4,8 @@ const initialState = {
     toggler: true
 }
 
-const topbarReducer = (state = initialState, action) => {
-    switch (action.type) {
+const topbarReducer = (state = initialState, { type }) => {
+    switch (type) {
         case TOGGLE_BURGER:
             return {
                 ...state,

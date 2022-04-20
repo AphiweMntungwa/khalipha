@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/infomzansi'
+const dbUrl = 'mongodb://localhost:27017/infomzansi' //|| process.env.DB_URL
 main().then(() => console.log('DATABASE CONNECTED')).catch(err => console.log(err));
 async function main() {
     await mongoose.connect(dbUrl);

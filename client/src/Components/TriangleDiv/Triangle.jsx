@@ -8,24 +8,30 @@ function Triangle({ provOrContr }) {
   const toggleState = useSelector((state) => state.topbar.toggler);
   const darkMode = useSelector((state) => state.mode.darkMode);
   const province = useSelector((state) => state.provinces.province);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const country = useSelector((state) => state.country.country);
-  
+  const largeWindow = useSelector((state) => state.screen.largeWindow);
+
+  const triangleId = largeWindow ? "triangle_none" : "";
   const triangleDark = darkMode ? "triangle_dark" : "";
   useEffect(() => {
-    dispatch(countryThunk('South Africa'))
+    dispatch(countryThunk("South Africa"));
   }, []);
 
-  const config = provOrContr && province.length
-    ? { name: province[0].name, population: province[0].populationInProv }
-    : {name:country.name, population:country.population};
+  const config =
+    provOrContr && province.length
+      ? { name: province[0].name, population: province[0].populationInProv }
+      : { name: country.name, population: country.population };
 
   return (
     <>
       {toggleState && (
         <>
-          <div className={`triangle-carrier ${triangleDark}`}></div>
-          <Country config={config} />
+          <div
+            className={`triangle-carrier ${triangleDark}`}
+            id={triangleId}
+          ></div>
+          <Country config={config} id={triangleId} />
         </>
       )}
     </>

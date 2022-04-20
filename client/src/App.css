@@ -32,14 +32,11 @@
     color: rgb(112, 76, 182);
 }
 
-@keyframes App-logo-float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+.large-body-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.large-body-container .side-div {
+    width: unset;
 }

@@ -6,7 +6,7 @@ let count = 0;
 function MoreInfo() {
   const [header, setHeader] = useState(`The API free plan 
   restricts change of base currency from EUR,currency
-  can only be paired against the EURO. e.g. EUR/?`);
+  can only be paired against the EURO. fmt EUR/???`);
   const [headerText, setHeaderText] = useState("");
   const [interval, breakInterval] = useState(40);
   const [show, setShow] = useState(true);

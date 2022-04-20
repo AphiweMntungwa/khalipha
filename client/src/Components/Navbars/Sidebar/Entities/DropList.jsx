@@ -24,7 +24,6 @@ function DropList({ dropProps }) {
               bar.classList.remove("bar");
               nav.classList.remove("laynav");
               navWrapper.classList.remove("wrapperOn");
-              console.log(localStorage.getItem('provinceName'))
               el.link !== '/' && dispatch(provinceThunk(localStorage.getItem("provinceName")))        
             }}
           >

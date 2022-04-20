@@ -1,6 +1,7 @@
 nav {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding-block: .5em;
 }
 
@@ -34,7 +35,7 @@ nav {
     background-color: white;
 }
 
-@media (max-width:532px) {
+@media (max-width:620px) {
     nav {
         justify-content: space-around;
     }

@@ -8,13 +8,14 @@ import { searchThunk } from "../../../app/redux/search/searchActions";
 import { Link } from "react-router-dom";
 import { toggleBurger } from "../../../app/redux/topbar/topbarActions";
 
-function Sidebar() {
+function Sidebar({ onSwitch }) {
   const toggleState = useSelector((state) => state.topbar.toggler);
   const darkMode = useSelector((state) => state.mode.darkMode);
   const searchResults = useSelector((state) => state.search.searchResults);
   const dispatch = useDispatch();
 
   const sideToggle = toggleState ? { display: "none" } : { display: "block" };
+  const bigSideBar = onSwitch ? { display: "block" } : {};
   const [chevron, chevronSpin] = useState([]);
   const [search, activateSearch] = useState(false);
   const [searchArr, setSearchArr] = useState([]);
@@ -85,7 +86,7 @@ function Sidebar() {
   const currencyDarkMode = darkMode ? { color: "white" } : { color: "inherit" };
 
   return (
-    <div className={`side-div`} style={sideToggle}>
+    <div className={`side-div`} style={{...sideToggle, ...bigSideBar}}>
       <ul>
         <li
           className={`search-list ${iconDark} ${activeSearch} chevronSwitch`}

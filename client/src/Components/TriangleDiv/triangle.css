@@ -47,3 +47,7 @@
         letter-spacing: 1.7px;
     }
 }
+
+#triangle_none {
+    display: none;
+}

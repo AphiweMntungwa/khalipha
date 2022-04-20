@@ -1,9 +1,10 @@
 import React from "react";
 
-function Country({config}) {
+function Country({config, id}) {
+
   const {name, population} = config;
   return (
-    <div>
+    <div id={id}>
       <table className="header-table">
         <tbody>
           <tr>

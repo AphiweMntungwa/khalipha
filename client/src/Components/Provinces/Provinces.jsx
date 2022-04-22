@@ -73,7 +73,7 @@ function Provinces() {
     ? {
         labels: provinces[0].higherEducation.years,
         data: provinces[0].higherEducation.growth,
-        oneLabel: "Education of over 20's.",
+        oneLabel: "Education in Province.",
         chartText: "Higher Education",
       }
     : {};

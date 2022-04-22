@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "../Doughnut/chart.css";
-import OtherDetails from "../Doughnut/OtherDetails/OtherDetails";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-function BarChart({ config }) {
+function BarChart({ config , indexAxs = 'y', cname}) {
   useEffect(() => {
     const bar = document.querySelector(".cross-div");
     const nav = document.querySelector("nav");
@@ -68,7 +67,7 @@ function BarChart({ config }) {
           position: "bottom",
         },
       },
-      indexAxis : 'y'
+      indexAxis : indexAxs
     });
   };
 
@@ -78,9 +77,8 @@ function BarChart({ config }) {
   const toggleState = useSelector((state) => state.topbar.toggler);
 
   return (
-    <div className="chartDiv BarChart">
+    <div className={`chartDiv BarChart ${cname}`}>
       {toggleState ? <Bar options={chartOptions} data={chartData} /> : null}
-      {/* {toggleState ? <OtherDetails paragraph={paragraph} /> : null} */}
     </div>
   );
 }

@@ -4,12 +4,13 @@ const { Schema, model } = mongoose;
 //model of the province
 
 const provinceSchema = new Schema({
-    name: "String",
+    name: String,
     description: String,
     populationInProv: Number,
     raceLabels: [],
     populationByRace: [],
-    populationByLanguage: []
+    populationByLanguage: [],
+    higherEducation: {}
 });
 
 module.exports = model('Province', provinceSchema);

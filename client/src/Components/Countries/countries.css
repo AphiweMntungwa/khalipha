@@ -10,3 +10,34 @@
 .changeButtonHolder button:last-child {
     margin-left: 1%;
 }
+
+.big-bar {
+    display: none;
+    padding-top: 0.8em;
+}
+
+.util-button {
+    justify-content: center;
+    margin-bottom: .8em;
+}
+
+.big-mike {
+    flex-grow: 1;
+    padding-top: 1em;
+}
+
+@media (min-width:1000px) {
+    .big-bar {
+        display: block;
+        flex-grow: 1;
+    }
+    #large-app .chartDiv {
+        padding-inline: unset;
+    }
+    .changeButtonHolder button {
+        font-size: 1em
+    }
+    .util-button {
+        display: none;
+    }
+}

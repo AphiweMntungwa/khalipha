@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 nav {
     display: flex;
     flex-wrap: wrap;
@@ -5,11 +6,28 @@ nav {
     padding-block: .5em;
 }
 
+#large-app nav {
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 1px 1px 0.5pc;
+}
+
+#large-app {
+    font-size: smaller;
+}
+
 .nav-wrapper {
     background-color: rgb(138, 233, 233, .2);
 }
 
-.laynav {}
+nav h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+#large-app .homelink,
+#large-app .homelink+div {
+    flex-grow: 1;
+}
 
 .wrapperOn {
     position: absolute;

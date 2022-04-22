@@ -15,7 +15,8 @@ const countrySchema = new Schema({
         ref: 'Province'
     }],
     religions: {},
-    economy: {}
+    economy: {},
+    higherEducation: {}
 })
 
 module.exports = model('Country', countrySchema);

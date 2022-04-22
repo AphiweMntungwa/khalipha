@@ -3,11 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleBurger } from "../../../app/redux/topbar/topbarActions";
 import { Link, useLocation } from "react-router-dom";
 import RainbowText from "react-rainbow-text";
+import Country from "../../TriangleDiv/Country";
 import "./topbar.css";
 
 function Topbar({ children }) {
   const toggleState = useSelector((state) => state.topbar.toggler);
   const darkMode = useSelector((state) => state.mode.darkMode);
+  const largeWindow = useSelector((state) => state.screen.largeWindow);
+  const country = useSelector((state) => state.country.country);
+  const province = useSelector((state) => state.provinces.province);
   const dispatch = useDispatch();
 
   const handleNavToggle = () => {
@@ -28,28 +32,49 @@ function Topbar({ children }) {
     ? { backgroundColor: "black" }
     : { backgroundColor: "rgb(138, 233, 233)" };
 
-    const lightCross = darkMode ? 'cross-button-dark' : ''
-    const headerLight = darkMode ? .6 : 0.2
+  const lightCross = darkMode ? "cross-button-dark" : "";
+  const headerLight = darkMode ? 0.7 : 0.3;
 
-    const location = useLocation()
-    const link = location.pathname !== "/" && !toggleState ? '' : '/'
+  const location = useLocation();
+  let linker = "";
+  const link = location.pathname !== "/" && !toggleState ? "" : "/";
+  linker = largeWindow ? "/" : link;
+
+  const config =
+    location.pathname == "/province" && province[0]
+      ? {
+          name: province[0].name,
+          population: province[0].populationInProv,
+          entity: "province",
+        }
+      : {
+          name: country.name,
+          population: country.population,
+          entity: "country",
+        };
 
   return (
     <div className="nav-wrapper" style={navDark}>
       <nav>
-        <Link to={{ pathname: link }} style={{ textDecoration: "none" }}>
+        <Link
+          to={{ pathname: linker }}
+          style={{ textDecoration: "none" }}
+          className="homelink"
+        >
           <h1>
             <RainbowText lightness={headerLight} saturation={1}>
-              inform-sa
+              khalipha
             </RainbowText>
           </h1>
         </Link>
-
+        {largeWindow && <Country config={config} />}
         <div
           className="cross-div"
           onClick={() => {
-            dispatch(toggleBurger());
-            handleNavToggle();
+            if (!largeWindow) {
+              dispatch(toggleBurger());
+              handleNavToggle();
+            }
           }}
         >
           <div className={`cross-button ${lightCross}`}></div>

@@ -12,6 +12,7 @@ function Sidebar({ onSwitch }) {
   const toggleState = useSelector((state) => state.topbar.toggler);
   const darkMode = useSelector((state) => state.mode.darkMode);
   const searchResults = useSelector((state) => state.search.searchResults);
+  const largeWindow = useSelector((state) => state.screen.largeWindow);
   const dispatch = useDispatch();
 
   const sideToggle = toggleState ? { display: "none" } : { display: "block" };
@@ -86,7 +87,10 @@ function Sidebar({ onSwitch }) {
   const currencyDarkMode = darkMode ? { color: "white" } : { color: "inherit" };
 
   return (
-    <div className={`side-div`} style={{...sideToggle, ...bigSideBar}}>
+    <div
+      className={`side-div sidelist`}
+      style={{ ...sideToggle, ...bigSideBar }}
+    >
       <ul>
         <li
           className={`search-list ${iconDark} ${activeSearch} chevronSwitch`}
@@ -131,7 +135,9 @@ function Sidebar({ onSwitch }) {
             className={iconDark}
             onClick={() => {
               if (window.location.pathname !== "/converter") {
-                dispatch(toggleBurger());
+                if (!largeWindow) {
+                  dispatch(toggleBurger());
+                }
               }
             }}
             style={currencyDarkMode}
@@ -142,13 +148,6 @@ function Sidebar({ onSwitch }) {
         <li onClick={handleDarkMode} className={iconDark}>
           {darkOrLight} Mode <box-icon name="brightness"></box-icon>
         </li>
-        {/* <li onClick={handleClass} id="3">
-          Cities <box-icon name="chevron-down"></box-icon>
-          <span><DropList dropProps={dropProps.cities} /></span>
-        </li>
-        <li>
-          About Page <box-icon name="paper-plane"></box-icon>
-        </li> */}
       </ul>
     </div>
   );

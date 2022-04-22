@@ -1,6 +1,11 @@
 .App {
     text-align: center;
     overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#large-app {
+    overflow-x: unset;
 }
 
 .dark-app {
@@ -39,4 +44,44 @@
 
 .large-body-container .side-div {
     width: unset;
+    font-size: 80%;
+    height: 80vh;
+}
+
+.large-body-container .side-div ul li {
+    box-shadow: none;
+}
+
+.large-body-container .side-div ul {
+    justify-content: space-between;
+}
+
+.body-children {
+    width: 50%;
+    flex-grow: 1;
+    padding-inline: 6%;
+}
+
+@media (min-width:818px) {
+    .body-children {
+        padding-inline: 14%;
+    }
+}
+
+@media (min-width:1000px) {
+    .body-children {
+        padding-inline: 4%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: .3em;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(100, 3%, 12%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(193, 23%, 47%);
 }

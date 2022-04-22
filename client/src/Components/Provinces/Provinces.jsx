@@ -6,10 +6,12 @@ import { provinceThunk } from "../../app/redux/provinces/provinceActions";
 import { useDispatch, useSelector } from "react-redux";
 import AccordBstrap from "../Accordion/AccordBstrap";
 import LineChart from "../Charts/Line/Line";
+import Utils from "../Utils";
 
 function Provinces() {
   const dispatch = useDispatch();
   const provinces = useSelector((state) => state.provinces.province);
+  const largeWindow = useSelector((state) => state.screen.largeWindow);
 
   useEffect(() => {
     const bar = document.querySelector(".cross-div");
@@ -59,15 +61,35 @@ function Provinces() {
     ? `https://en.wikipedia.org/wiki/${provinces[0].name}`
     : "";
 
+  const altBarConfig = provinces[0]
+    ? {
+        labels: provinces[0].raceLabels,
+        data: provinces[0].populationByRace,
+        chartText: "alt",
+      }
+    : {};
+
+  const lineConfig = provinces[0]
+    ? {
+        labels: provinces[0].higherEducation.years,
+        data: provinces[0].higherEducation.growth,
+        oneLabel: "Education of over 20's.",
+        chartText: "Higher Education",
+      }
+    : {};
+
   return (
     <div>
-      <ChartEthnic config={config} linkTo={linkTo} />
+      {!largeWindow && <ChartEthnic config={config} linkTo={linkTo} />}
+      {largeWindow && (
+        <Utils config={config} barConfig={altBarConfig} linkTo={linkTo} />
+      )}
       <AccordBstrap config={{ title: "Languages In Province(%)", key: 1 }}>
         <BarChart config={barConfig} />
       </AccordBstrap>
-      <AccordBstrap
-        config={{ title: "Financial Information", key: 2 }}
-      ></AccordBstrap>
+      <AccordBstrap config={{ title: "Higher Education", key: 2 }}>
+        <LineChart config={lineConfig} />
+      </AccordBstrap>
     </div>
   );
 }

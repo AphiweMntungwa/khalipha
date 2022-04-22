@@ -24,25 +24,29 @@ ChartJS.register(
 );
 
 function LineChart({ config }) {
-    const { labels, chartText, data } = config;
+  const { labels, chartText, data, oneLabel = "one", manyLabels } = config;
   const [chartData, setChartData] = useState({
     datasets: [],
   });
+
+  const dts = manyLabels
+    ? manyLabels
+    : [
+        {
+          label: oneLabel,
+          data,
+          backgroundColor: "rgb(36, 10, 200, .5)",
+          borderColor: "rgb(36, 10, 200)",
+          borderWidth: 2,
+        },
+      ];
 
   const [chartOptions, setChartOptions] = useState({});
 
   const chart = () => {
     setChartData({
       labels,
-      datasets: [
-        {
-          label: "one",
-          data,
-          backgroundColor: "rgb(36, 10, 200, .5)",
-          borderColor: "rgb(36, 10, 200)",
-          borderWidth: 2,
-        },
-      ],
+      datasets: dts,
     });
 
     setChartOptions({
@@ -54,7 +58,7 @@ function LineChart({ config }) {
         display: true,
         text: chartText,
         position: "bottom",
-      }
+      },
     });
   };
 

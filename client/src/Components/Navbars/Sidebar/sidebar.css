@@ -116,3 +116,24 @@ li input {
 .dark-icons {
     fill: wheat;
 }
+
+.large-body-container .side-div ul {
+    width: 226.08px;
+}
+
+.large-body-container .side-div>ul {
+    height: 100%;
+    font-size: 1.5em;
+}
+
+.sidelist {
+    position: sticky;
+    top: 5%;
+    align-self: flex-start;
+    overflow-y: auto;
+}
+
+#large-app .side-div>ul>li,
+#large-app .side-div>ul>a {
+    padding-bottom: 5pc;
+}

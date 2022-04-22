@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./chart.css";
 import OtherDetails from "./OtherDetails/OtherDetails";
-import axios from "axios";
+import BootButtons from "../../Countries/BootButtons";
 
 import {
   Chart as ChartJS,
@@ -24,7 +24,8 @@ ChartJS.register(
   Legend
 );
 
-function ChartEthnic({ config, linkTo }) {
+function ChartEthnic({ config, linkTo, changeGraph, status }) {
+  const largeWindow = useSelector((state) => state.screen.largeWindow);
   useEffect(() => {
     const bar = document.querySelector(".cross-div");
     const nav = document.querySelector("nav");
@@ -40,11 +41,10 @@ function ChartEthnic({ config, linkTo }) {
   });
   const [chartOptions, setChartOptions] = useState({});
 
-  
-  const chart= () => {
+  const chart = () => {
     setChartData({
-      labels : labels && labels.length ? labels : ['test'],
-      datasets :[datasets]
+      labels: labels && labels.length ? labels : ["test"],
+      datasets: [datasets],
     });
     setChartOptions({
       responsive: true,
@@ -63,7 +63,7 @@ function ChartEthnic({ config, linkTo }) {
 
   useEffect(() => {
     chart();
-    }, [labels, datasets]);
+  }, [labels, datasets]);
   const toggleState = useSelector((state) => state.topbar.toggler);
 
   return (
@@ -71,7 +71,17 @@ function ChartEthnic({ config, linkTo }) {
       {toggleState ? (
         <Doughnut options={chartOptions} data={chartData} />
       ) : null}
-      {toggleState ? <OtherDetails paragraph={paragraph} linkTo={linkTo} /> : null}
+    
+      {!status && toggleState && !largeWindow ? (
+        <>
+          <BootButtons
+            changeGraph={changeGraph}
+            buttonText={{ first: "Doughnout", second: "Alt-bar" }}
+            cname="util-button"
+          />
+          <OtherDetails paragraph={paragraph} linkTo={linkTo} />
+        </>
+      ) : null}
     </div>
   );
 }

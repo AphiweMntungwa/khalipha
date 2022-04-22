@@ -20,8 +20,16 @@ function Triangle({ provOrContr }) {
 
   const config =
     provOrContr && province.length
-      ? { name: province[0].name, population: province[0].populationInProv }
-      : { name: country.name, population: country.population };
+      ? {
+          name: province[0].name,
+          population: province[0].populationInProv,
+          entity: "Province",
+        }
+      : {
+          name: country.name,
+          population: country.population,
+          entity: "Country",
+        };
 
   return (
     <>

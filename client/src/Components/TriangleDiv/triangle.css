@@ -51,3 +51,8 @@
 #triangle_none {
     display: none;
 }
+
+#large-app .header-table {
+    width: 100%;
+    flex-grow: 1;
+}

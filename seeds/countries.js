@@ -1,3 +1,6 @@
+const years = [1996, 2001, 2007, 2011]
+
+
 const countries = [{
     name: "South Africa",
     description: `South Africa, officially the Republic of South Africa (RSA), is the 
@@ -37,9 +40,9 @@ const countries = [{
         list: ['christianity', 'noReligion', 'traditionalFaiths', 'islam', 'hinduism', 'others', 'undetermined'],
         listData: [78.0, 10.9, 4.4, 1.6, 1.0, 2.7, 1.4, ]
     },
+    higherEducation: { years, growth: [7.1, 8.5, 8.4, 11.8] },
     president: 'Cyril Ramaphosa'
 }]
-
 
 const prov = [{
     name: 'kwaZulu-Natal',
@@ -52,6 +55,7 @@ const prov = [{
     Afrikaans: KwaZoeloe-Natal) is a province of South Africa that was created in 1994 
     when the Zulu bantustan of KwaZulu ("Place of the Zulu" in Zulu) and Natal Province 
     were merged.`,
+    higherEducation: { years, growth: [5.8, 6.9, 7.3, 9.1] }
 }, {
     name: 'Limpopo',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -61,6 +65,7 @@ const prov = [{
     description: `Limpopo is the northernmost province of South Africa. It is named 
     after the Limpopo River, which forms the province's western and northern borders.
     [4] The capital and largest city in the province is Polokwane.`,
+    higherEducation: { years, growth: [5.1, 6.8, 6.6, 9.2] }
 }, {
     name: 'North West',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -71,6 +76,7 @@ const prov = [{
         Leboa-Bodikela) is a province of South Africa. Its capital is Mahikeng. 
         The province is located to the west of the major population centre of Gauteng. 
     It is also located next to Botswana.`,
+    higherEducation: { years, growth: [5.0, 5.7, 6.2, 7.5] }
 }, {
     name: 'Northern Cape',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -80,6 +86,7 @@ const prov = [{
     description: `The Northern Cape (Afrikaans: Noord-Kaap; Xhosa: eMntla-Koloni; 
         Tswana: Kapa Bokone) is the largest and most sparsely populated province of South Africa. 
         It was created in 1994 when the Cape Province was split up. Its capital is Kimberley.`,
+    higherEducation: { years, growth: [6.2, 5.9, 6.3, 7.2] }
 }, {
     name: 'Gauteng',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -90,6 +97,7 @@ const prov = [{
     Gauteng; Zulu: eGoli; Tsonga: Gauteng/eXilungwini; Ndebele, Xhosa: iRhawuti; 
     Southern Ndebele: I-Gauteng; Venda: Gauteng) is one of the nine provinces of South Africa. 
     The name in Sotho-Tswana languages means 'place of gold'.`,
+    higherEducation: { years, growth: [9.9, 12.3, 10.3, 17.7] }
 }, {
     name: 'Free State',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -100,6 +108,7 @@ const prov = [{
     Tswana: Foreistata; Zulu: iFuleyisitata; 
     before 1995, the Orange Free State) is a province of South Africa. 
     Its capital is Bloemfontein, which is also South Africa's judicial capital.`,
+    higherEducation: { years, growth: [5.9, 6.3, 7.7, 9.5] }
 }, {
     name: 'Eastern Cape',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -109,6 +118,7 @@ const prov = [{
     description: `The Eastern Cape (Xhosa: iMpuma-Koloni, Afrikaans: Oos-Kaap) 
     is one of the provinces of South Africa. 
     Its capital is Bhisho, but its two largest cities are East London and Port Elizabeth.`,
+    higherEducation: { years, growth: [5.1, 6.3, 6.6, 8.5] }
 }, {
     name: 'Mpumalanga',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -119,6 +129,7 @@ const prov = [{
     The name means "east", or literally "the place where the sun rises" 
     in the Swazi, Xhosa, Ndebele and Zulu languages. 
     Mpumalanga lies in eastern South Africa, bordering Eswatini and Mozambique.`,
+    higherEducation: { years, growth: [5.5, 6.0, 6.9, 9.2] }
 }, {
     name: 'Western Cape',
     raceLabels: ["black", "Coloured", "Asian", "White"],
@@ -129,6 +140,7 @@ const prov = [{
     province of South Africa, situated on the south-western coast of the country. 
     It is the fourth largest of the nine provinces with an area of 129,449 square kilometres (
     49,981 sq mi), and the third most populous, with an estimated 7 million inhabitants in 2020.`,
+    higherEducation: { years, growth: [11.5, 11.2, 12.0, 14.1] }
 }]
 
 module.exports = { countries, prov };

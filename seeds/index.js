@@ -1,4 +1,3 @@
-const dotenv = require("dotenv").config();
 const mongoose = require('mongoose');
 const Country = require('../models/countries')
 const Province = require('../models/provinces')
@@ -11,7 +10,8 @@ const {
     populationByLanguage,
     description,
     religions,
-    economy
+    economy,
+    higherEducation
 } = countries[0]
 
 //Seeding the database with sample data
@@ -31,7 +31,8 @@ async function seedData() {
         populationByLanguage,
         description,
         religions,
-        economy
+        economy,
+        higherEducation
     })
     southAfrica.save().then(async() => {
         await Province.deleteMany({});
@@ -42,7 +43,8 @@ async function seedData() {
                 populationInProv: el.populationInProv,
                 populationByRace: el.populationByRace,
                 populationByLanguage: el.populationByLanguage,
-                description: el.description
+                description: el.description,
+                higherEducation: el.higherEducation
             })
             southAfrica.provinces.push(province)
             province.save().then(console.log(i))

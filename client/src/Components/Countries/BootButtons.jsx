@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function BootButtons({ changeGraph }) {
+function BootButtons({ changeGraph, cname, buttonText }) {
+  const {first, second} = buttonText
   return (
-    <div className="changeButtonHolder">
+    <div className={`changeButtonHolder ${cname}`}>
       <Button
         variant="outline-success"
         id=''
@@ -11,7 +12,7 @@ function BootButtons({ changeGraph }) {
           changeGraph(e.target.id);
         }}
       >
-        Growth
+        {first}
       </Button>
       <Button
         variant="outline-success"
@@ -20,7 +21,7 @@ function BootButtons({ changeGraph }) {
           changeGraph(e.target.id);
         }}
       >
-        P. share
+        {second}
       </Button>
     </div>
   );

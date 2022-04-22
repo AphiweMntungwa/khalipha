@@ -7,7 +7,8 @@ import CurrencyName from "./CurrencyName";
 import MoreInfo from "./MoreInfo";
 
 function Converter() {
-  const toggleState = useSelector(state => state.topbar.toggler);
+  const largeWindow = useSelector((state) => state.screen.largeWindow);
+  const toggleState = useSelector((state) => state.topbar.toggler);
   const [currencyOptions, setCurrencyOptions] = useState([]);
   const [fromCurrency, setFromCurrency] = useState();
   const [toCurrency, setToCurrency] = useState();
@@ -27,12 +28,14 @@ function Converter() {
 
   const link = "http://localhost:3001/forex"; //"http://khalipha.herokuapp.com/forex"
   useEffect(() => {
-    const bar = document.querySelector(".cross-div");
-    const nav = document.querySelector("nav");
-    const navWrapper = document.querySelector(".nav-wrapper");
-    bar.classList.remove("bar");
-    nav.classList.remove("laynav");
-    navWrapper.classList.remove("wrapperOn");
+    if (!largeWindow) {
+      const bar = document.querySelector(".cross-div");
+      const nav = document.querySelector("nav");
+      const navWrapper = document.querySelector(".nav-wrapper");
+      bar.classList.remove("bar");
+      nav.classList.remove("laynav");
+      navWrapper.classList.remove("wrapperOn");
+    }
 
     axios
       .post(link)

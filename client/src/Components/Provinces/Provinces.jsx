@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./provinces.css";
 import ChartEthnic from "../Charts/Doughnut/ChartEthnic";
 import BarChart from "../Charts/Bar chart/Bar";
@@ -7,8 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import AccordBstrap from "../Accordion/AccordBstrap";
 import LineChart from "../Charts/Line/Line";
 import Utils from "../Utils";
+import OtherDetails from "../Charts/Doughnut/OtherDetails/OtherDetails";
+import BootButtons from "../Countries/BootButtons";
 
 function Provinces() {
+  const [selectedGraph, changeGraph] = useState("");
   const dispatch = useDispatch();
   const provinces = useSelector((state) => state.provinces.province);
   const largeWindow = useSelector((state) => state.screen.largeWindow);
@@ -80,7 +83,30 @@ function Provinces() {
 
   return (
     <div>
-      {!largeWindow && <ChartEthnic config={config} linkTo={linkTo} />}
+      {!largeWindow && (
+        <>
+          {selectedGraph ? (
+            <>
+              <BarChart config={altBarConfig} indexAxs="y" cname="big-mike" />
+              <BootButtons
+                changeGraph={changeGraph}
+                buttonText={{ first: "Doughnout", second: "Alt-bar" }}
+                cname="util-button"
+              />
+              <OtherDetails
+                paragraph={config.paragraph}
+                linkTo={linkTo}
+              />
+            </>
+          ) : (
+            <ChartEthnic
+              config={config}
+              linkTo={linkTo}
+              changeGraph={changeGraph}
+            />
+          )}
+        </>
+      )}
       {largeWindow && (
         <Utils config={config} barConfig={altBarConfig} linkTo={linkTo} />
       )}

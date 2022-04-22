@@ -70,7 +70,7 @@ function Countries() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3001/South Africa/province")
+      .post("http://khalipha.herokuapp.com/South Africa/province")
       .then((res) => setLineCountry(res.data.country))
       .catch((e) => console.log("oops error", e.message));
   }, []);

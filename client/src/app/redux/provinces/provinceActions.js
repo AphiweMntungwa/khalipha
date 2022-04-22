@@ -21,7 +21,7 @@ export const fetchProvinceError = error => {
 export const provinceThunk = (name) => {
     return (dispatch, getState) => {
         dispatch(fetchProvinceReq());
-        axios.post('http://localhost:3001/South Africa/province', { name }) //"http://khalipha.herokuapp.com/South Africa/province"
+        axios.post('http://khalipha.herokuapp.com/South Africa/province', { name })
             .then((res) => {
                 const prv = res.data.country[0].provinces.filter(el =>
                     el.name.toUpperCase() === res.data.province

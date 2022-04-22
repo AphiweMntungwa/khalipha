@@ -26,7 +26,7 @@ function Converter() {
     fromAmount = amount / exchangeRate;
   }
 
-  const link = "http://localhost:3001/forex"; //"http://khalipha.herokuapp.com/forex"
+  const link = "http://khalipha.herokuapp.com/forex";
   useEffect(() => {
     if (!largeWindow) {
       const bar = document.querySelector(".cross-div");

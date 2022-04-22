@@ -22,7 +22,7 @@ export const fetchCountryError = error => {
 export const countryThunk = (name) => {
     return (dispatch) => {
         dispatch(fetchCountryReq());
-        axios.get(`http://localhost:3001/${name}`) //`http://khalipha.herokuapp.com/${name}`
+        axios.get(`http://khalipha.herokuapp.com/${name}`)
             .then((res) => {
                 const prv = res.data[0]
                 dispatch(fetchCountrySuccess(prv))
